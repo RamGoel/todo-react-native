@@ -1,24 +1,23 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
-import { bgColor, inputBg, lightText, textColor, windowHeight } from '../../constants'
+import { View,Image, StyleSheet } from 'react-native'
+import { bgColor, inputBg, lightText, textColor, windowHeight, windowWidth } from '../../constants'
 function Splash() {
   return (
     <View style={styles.container}>
         <View >
 
-        <Text style={styles.mainText}>
-            Doit
-        </Text>
-        <Text style={styles.subText}>
-            OK, do it
-        </Text>
+        <Image style={{
+            width:windowWidth*0.3,
+            height:windowWidth*0.3,
+            borderRadius:10
+        }} source={require('../../assets/Doit.png')}/>
         </View>
     </View>
   )
 }
 const styles=StyleSheet.create({
     container:{
-        backgroundColor:bgColor,
+        backgroundColor:'white',
         height:windowHeight,
         alignItems:'center',
         flexDirection:'row',
