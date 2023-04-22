@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between'
     },
     todoText: {
-        color: textColor,
+        color: lightText,
         fontSize: 15,
         margin: 0,
         padding: 0,

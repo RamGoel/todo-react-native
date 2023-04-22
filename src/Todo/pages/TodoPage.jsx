@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Text, StyleSheet, ScrollView, View, Dimensions, TextInput, Button, TouchableOpacity } from 'react-native'
+import { Text, StyleSheet, ToastAndroid, ScrollView, Alert, View, Dimensions, TextInput, Button, TouchableOpacity } from 'react-native'
 import TodoList from '../components/TodoList'
 import { bgColor, inputBg, lightText, navColor, primaryVar, textColor } from '../../constants'
 import Splash from './Splash'
@@ -11,7 +11,7 @@ function TodoPage() {
 
     const [todos, setTodos] = useState([
         { todo: "Review Doit App on Playstore", id: 1 },
-        
+
     ])
     const [todo, setTodo] = useState('')
     const [showPage, setShow] = useState(0)
@@ -22,7 +22,9 @@ function TodoPage() {
     })
     const addTodo = () => {
         if (todo === '') {
-            alert("Enter some text")
+            ToastAndroid.show(
+                'Enter Some Text First', ToastAndroid.SHORT
+            );
             return;
         }
         if (todos.length == 0) setTodos(prev => [...prev, { todo: todo, id: 0 }])
@@ -47,16 +49,16 @@ function TodoPage() {
                     </View>
                     <View style={styles.todoBox}>
                         <Text style={styles.subhead}>{
-                        (todos.length==0)
-                        ?"Yay! no more tasks"
-                        :(todos.length==1)
-                            ?`Just ${todos.length} more task`
-                            :`Just ${todos.length} more tasks`}</Text>
+                            (todos.length == 0)
+                                ? "Yay! no more tasks"
+                                : (todos.length == 1)
+                                    ? `Just ${todos.length} more task`
+                                    : `Just ${todos.length} more tasks`}</Text>
                         <TodoList todosArray={todos} delFn={deleteTodo} />
                     </View>
                 </View>
             </ScrollView>
-            <Text style={styles.bottomText}>Made by Ram Goel | v1.0</Text>
+            <Text style={styles.bottomText}>Developed by Ram Goel | v1.0</Text>
         </ScrollView> : <Splash />
     )
 }
@@ -64,21 +66,9 @@ function TodoPage() {
 
 
 const styles = StyleSheet.create({
-    heading1: {
-        fontSize: 20,
-        fontWeight: '500',
-        width: windowWidth,
-        textAlign: 'left',
-        paddingHorizontal: 10,
-        color: textColor,
-        paddingVertical: 13,
-        backgroundColor: navColor
-    },
     subhead: {
         color: lightText,
         marginBottom: 10,
-        borderBottomColor: inputBg,
-        borderBottomWidth: 1,
         paddingBottom: 5
     },
     container: {
@@ -104,7 +94,7 @@ const styles = StyleSheet.create({
     btnText: {
         fontSize: 40,
         textAlign: 'center',
-        color: 'white',
+        color: lightText,
         marginVertical: 'auto',
         opacity: 0.3
     },
@@ -113,7 +103,7 @@ const styles = StyleSheet.create({
         marginVertical: 10,
         borderRadius: 5,
         paddingLeft: 10,
-        color: 'white',
+        color: lightText,
         backgroundColor: 'transparent',
         height: windowHeight * 0.05
 
@@ -121,14 +111,14 @@ const styles = StyleSheet.create({
     div: {
         flexDirection: 'row',
         justifyContent: 'center',
-        minHeight: windowHeight*0.9,
+        minHeight: windowHeight * 0.9,
         backgroundColor: bgColor
     },
     bottomText: {
         textAlign: 'center',
-        color: inputBg,
+        color: lightText,
         opacity: 1,
-        height:windowHeight*0.1
+        height: windowHeight * 0.1
     },
     mainDiv: {
         backgroundColor: bgColor,

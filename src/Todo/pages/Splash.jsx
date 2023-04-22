@@ -4,7 +4,7 @@ import { bgColor, inputBg, lightText, textColor, windowHeight } from '../../cons
 function Splash() {
   return (
     <View style={styles.container}>
-        <View style={styles.textBox}>
+        <View >
 
         <Text style={styles.mainText}>
             Doit
@@ -24,17 +24,8 @@ const styles=StyleSheet.create({
         flexDirection:'row',
         justifyContent:'center'
     },
-    textBox:{
-        borderWidth:5,
-        borderRightWidth:0,
-        borderLeftWidth:0,
-        borderColor:inputBg,
-        padding:25,
-        borderRadius:200,
-
-    },
     mainText:{
-        color:textColor,
+        color:lightText,
         fontSize:40,
         fontWeight:'bold'
     },
