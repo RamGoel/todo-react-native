@@ -1,13 +1,10 @@
 import React from 'react'
 import TodoPage from './Todo/pages/TodoPage'
-import Main from './Market/Main'
 import { View } from 'react-native'
+import Splash from './Todo/pages/Splash'
 function App() {
   return (
-    // <TodoPage />
-    <View>
-      <Main/>
-    </View>
+    <TodoPage />    
   )
 }
 

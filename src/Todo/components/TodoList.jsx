@@ -6,8 +6,12 @@ function TodoList({todosArray, delFn}) {
   return (
     <View>
         {
-            todosArray.map(todo=>{
-                return <Todo todoObj={todo} key={todo.id} delFn={delFn} />
+            todosArray.map((todo,index)=>{
+                return <Todo 
+                todoObj={todo} 
+                index={index} 
+                delFn={delFn} 
+                />
             })
         }
     </View>
